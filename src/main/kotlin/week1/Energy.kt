@@ -1,3 +1,4 @@
+package week1
 
 fun berechneTaeglichenVerbrauch(verbrauch: Double, stundenProTag: Double): Double {
     return verbrauch * stundenProTag
