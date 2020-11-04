@@ -22,10 +22,12 @@ In diesem Fall ist die Zuweisung des Wertes an den Namen fest.
 Wir können aber auch erlauben,
 dass der einem Namen zugewiesene Wert
 zu einem späteren Zeitpunkt verändert wird.
-Dafür brauchen wir das Schlüsselwort `var`
-bei der ersten Definition des Namens –
+Dafür brauchen wir das Schlüsselwort `var`,
+allerdings nur bei der ersten Definition des Namens –
 bei späterer Neuzuweisung eines anderen Wertes
-darf das Schlüsselwort nicht mehr verwendet werden. 
+darf das Schlüsselwort nicht mehr verwendet werden,
+denn es wird ein neuer Wert an einen bestehenden Namen gebunden,
+es wird kein neuer Name eingeführt. 
 Beispiel:
 ```
 var name: String = "Max"
@@ -83,4 +85,68 @@ wie oft sie ausgeführt wird.
 Stattdessen wird eine Bedingung definiert,
 und so lange diese erfüllt ist, läuft die Schleife weiter.
 
-[...] (noch unvollständig)
+Eine solche Bedingung
+kann auf verschieden Weisen definiert werden.
+In allen Fällen muss der Ausdruck zu einem Boolean-Wert
+aufgelöst werden können – true oder false.
+In diesem Fall stehen diese für Antworten auf die Frage:
+Soll die Schleife ein weiteres Mal ausgeführt werden –
+ja oder nein?
+
+Ein häufiges Beispiel ist die Überprüfung
+eines bestimmten Werts am Anfang der Schleife.
+Dies ergibt nur dann Sinn,
+wenn es sich um einen veränderlichen Wert handelt (siehe oben),
+und dieser im Laufe der Schleifenausführung
+auch tatsächlich verändert wird.
+So wie hier:
+```
+var x: Int = 1
+while (x < 100) {
+  x = x * 2
+  println("Unser Wert wurde verdoppelt, er steht jetzt bei $x")
+}
+println("Die Schleife ist beendet!")
+```
+Dieser Code wird so lange den Wert von `x` verdoppeln
+und entsprechende Textausgaben produzieren,
+bis ein Wert von über 100 erreicht ist.
+Bei der nächsten Überprüfung wird dann festgestellt,
+dass die Bedingung nicht mehr erfüllt ist.
+Die Ausführung geht dann in der Zeile nach der Schleife weiter.
+
+Ähnlich wie eine Schleife funktioniert eine Verzweigung,
+die mit den Schlüsselworten `if` und (optional) `else`
+definiert wird.
+Auch hier wird eine Bedingung definiert.
+Ist diese bei der Ausführung des Codes erfüllt,
+wird der folgende Block von Code genau einmal ausgeführt.
+Ansonsten wird der Block nicht ausgeführt.
+Es kann aber ein alternativer Block von Code definiert werden,
+der in diesem Fall ausgeführt wird.
+Beispiele:
+```
+// nur ein Block für den positiven Fall:
+val zahl: Int = bestimmeZahl()
+if (zahl > 5) {
+  println("Unsere Zahl ist größer als fünf!")
+}
+
+// Blocks für den positiven und den negativen Fall:
+val zahl: Int = bestimmeZahl()
+if (zahl < 0) {
+  println("Unsere Zahl ist negativ, also kleiner als 0!")
+} else {
+  println("Unsere Zahl ist positiv!")
+}
+```
+
+Solche Überprüfungen (für while-Schleifen und if-else-Ausdrücke)
+können ebenso durch Funktionsaufrufe definiert werden.
+Diese müssen dann einen Boolean-Wert zurückgeben.
+```
+val x: Int = waehleEineZahl()
+if (istPrimzahl(x)) {
+  println("Die Zahl $x ist eine Primzahl!")
+}
+```

@@ -7,6 +7,8 @@ package week2
 fun wieVieleHoelzer(gesamtZahl: Int): Int {
 
     // Die simpelste Lösung: Wir geben einfach immer dieselbe Zahl aus.
+    // Damit ignorieren wir die Eingabe –
+    // ein klügerer Computerspieler würde das natürlich nicht tun.
     return 2
 }
 
@@ -20,7 +22,11 @@ fun main() {
 
         println("Es gibt noch $gesamt Streichhölzer.")
 
+        // Hier wird der Name `genommen` zunächst nur deklariert,
+        // die Zuweisung eines konkreten Werts erfolgt erst später –
+        // denn wir wissen noch nicht, welche Variante wir brauchen.
         val genommen: Int
+
         if (aktuellerSpieler == "computer") {
             genommen = wieVieleHoelzer(gesamt)
             println("Computer nimmt $genommen Hölzchen")
@@ -40,4 +46,11 @@ fun main() {
     } else {
         println("Der Computer hat gewonnen!")
     }
+
+    // Diese letzte Abfrage ist verwirrend –
+    // "wenn der aktuelle Spieler der Computer ist, hat der Mensch gewonnen"?!
+    // Dies kommt dadurch zustande,
+    // dass der Wert der Variablen nach dem Nehmen der Hölzer verändert wird.
+    // Aber das ist nicht sofort ersichtlich, es ist darum kein wirklich guter Code.
+    // Wir werden versuchen, es nächste Woche etwas besser zu machen.
 }
