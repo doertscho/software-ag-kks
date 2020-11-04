@@ -14,6 +14,38 @@ Es gibt nur zwei gültige Werte für diesen Typ:
 In den meisten Fällen lassen sie sich auch verstehen als
 "ja" und "nein".
 
+## Neues Schlüsselwort: `var` für veränderliche Werte
+
+Bisher haben wir benannte Werte mit dem Wort `val` eingeleitet,
+zum Beispiel: `val meineLieblingsZahl: Int = 42`.
+In diesem Fall ist die Zuweisung des Wertes an den Namen fest.
+Wir können aber auch erlauben,
+dass der einem Namen zugewiesene Wert
+zu einem späteren Zeitpunkt verändert wird.
+Dafür brauchen wir das Schlüsselwort `var`
+bei der ersten Definition des Namens –
+bei späterer Neuzuweisung eines anderen Wertes
+darf das Schlüsselwort nicht mehr verwendet werden. 
+Beispiel:
+```
+var name: String = "Max"
+println("Der Name lautet: $name")
+name = "Moritz"
+println("Jetzt lautet der Name: $name")
+
+// zum Vergleich: Folgendes geht nicht!
+val name: String = "Max"
+name = "Moritz"
+
+// Folgendes geht auch nicht, zweimal `var` mit demselben Namen:
+var name: String = "Moritz"
+var name: String = "Max"
+```
+Grundsätzlich sollten Werte als unveränderlich definiert werden,
+also mit dem Wort `val`.
+Nur wenn es notwendig ist, sollte `var` verwendet werden.
+Eine Anwendung dafür findet sich im Folgenden.
+
 ## Neue Struktur: Schleifen
 
 Ein erstes Konzept für die Strukturierung unseres Codes
