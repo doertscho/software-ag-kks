@@ -115,6 +115,8 @@ Bei der nächsten Überprüfung wird dann festgestellt,
 dass die Bedingung nicht mehr erfüllt ist.
 Die Ausführung geht dann in der Zeile nach der Schleife weiter.
 
+## Neue Struktur: Verzweigungen
+
 Ähnlich wie eine Schleife funktioniert eine Verzweigung,
 die mit den Schlüsselworten `if` und (optional) `else`
 definiert wird.
