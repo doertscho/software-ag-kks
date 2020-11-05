@@ -133,7 +133,8 @@ val zahl: Int = bestimmeZahl()
 if (zahl > 5) {
   println("Unsere Zahl ist größer als fünf!")
 }
-
+```
+```
 // Blocks für den positiven und den negativen Fall:
 val zahl: Int = bestimmeZahl()
 if (zahl < 0) {
