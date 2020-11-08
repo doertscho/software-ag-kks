@@ -57,9 +57,10 @@ Neu in dieser Woche ist das Konzept der Schleifen.
 Schleifen haben mit Funktionen gemeinsam,
 dass sie einen bestimmten Block von Code 
 wiederverwendbar machen.
-Schleifen können verwendet werden 
+Schleifen können
 für die wiederholte Ausführung dieses Codes verwendet werden.
-Dafür bietet Kotlin zwei Arten von Schleifen:
+Dafür bietet Kotlin mehrere Arten von Schleifen,
+von denen wir zunächst zwei betrachten:
 
 Mit dem Schlüsselwort `for` wird eine Schleife eingeleitet,
 in der Aktionen 
@@ -153,3 +154,5 @@ if (istPrimzahl(x)) {
   println("Die Zahl $x ist eine Primzahl!")
 }
 ```
+
+**Beispiele: [Loops](Loops.kt), [NimSpiel](NimSpiel.kt)**
