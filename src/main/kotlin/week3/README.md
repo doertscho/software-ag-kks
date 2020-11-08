@@ -114,7 +114,7 @@ ob die eine oder andere Art der Definition für eine Funktion sinnvoller ist.
 Die objektorientierte Variante wird in der Regel dann verwendet,
 wenn eine Funktion ganz klar im Kontext eines konkreten Wertes zu sehen ist.
 Steht eine Funktion für sich und hat mehrere Eingabewerte,
-wird tendenziell eher die bisher bekannte, für sich stehende Variante verwendet.
+wird tendenziell eher die bisher bekannte Variante verwendet.
 
 Auch für objektorientierte Funktionsaufrufe
 können aber weitere Eingabewerte erforderlich sein.
