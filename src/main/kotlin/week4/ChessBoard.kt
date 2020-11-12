@@ -29,11 +29,13 @@ fun main() {
     // Hier ein Beispiel für die Erstellung eines zweidimensionalen Arrays
     // mit 8x8 Feldern, die jeweils anfangs den null-Wert enthalten
     // (also quasi "leer" sind):
-    val emptyEightByEightArray: Array<Array<ChessPawn?>> = Array(8) {
-        Array(8) {
-            null
+    val emptyEightByEightArray: Array<Array<ChessPawn?>> =
+        Array(8) {      // acht Zeilen ...
+            Array(8) {  // ... mit je acht Feldern ...
+                null        // ... die jeweils anfangs den null-Wert enthalten.
+            }
         }
-    }
+
     val chessBoard: ChessBoard = ChessBoard(emptyEightByEightArray)
 
     // Den einzelnen Feldern können Werte zugewiesen werden
