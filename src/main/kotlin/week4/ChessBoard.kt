@@ -1,12 +1,12 @@
 package week4
 
-enum class ChessPawnType {
+enum class ChessPieceType {
     King,
     Queen,
-    Tower,
+    Rook,
     Knight,
     Bishop,
-    Peasant,
+    Pawn,
 }
 
 enum class Colour {
@@ -14,13 +14,13 @@ enum class Colour {
     Black,
 }
 
-data class ChessPawn(
-        val type: ChessPawnType,
+data class ChessPiece(
+        val type: ChessPieceType,
         val colour: Colour
 )
 
 data class ChessBoard(
-        val fields: Array<Array<ChessPawn?>>
+        val fields: Array<Array<ChessPiece?>>
 )
 
 fun main() {
@@ -29,7 +29,7 @@ fun main() {
     // Hier ein Beispiel für die Erstellung eines zweidimensionalen Arrays
     // mit 8x8 Feldern, die jeweils anfangs den null-Wert enthalten
     // (also quasi "leer" sind):
-    val emptyEightByEightArray: Array<Array<ChessPawn?>> =
+    val emptyEightByEightArray: Array<Array<ChessPiece?>> =
         Array(8) {      // acht Zeilen ...
             Array(8) {  // ... mit je acht Feldern ...
                 null        // ... die jeweils anfangs den null-Wert enthalten.
@@ -40,19 +40,19 @@ fun main() {
 
     // Den einzelnen Feldern können Werte zugewiesen werden
     // (auch der null-Wert, der signalisiert, dass das Feld leer ist):
-    chessBoard.fields[3][5] = ChessPawn(ChessPawnType.Queen, Colour.White)
-    chessBoard.fields[0][3] = ChessPawn(ChessPawnType.Bishop, Colour.Black)
+    chessBoard.fields[3][5] = ChessPiece(ChessPieceType.Queen, Colour.White)
+    chessBoard.fields[0][3] = ChessPiece(ChessPieceType.Bishop, Colour.Black)
     chessBoard.fields[2][7] = null
 
     // Da wir nicht wissen können, ob ein Feld eine Figur enthält oder leer ist,
     // zwingt Kotlin uns, den Fall des fehlenden Wertes explizit zu berücksichtigen.
-    val pawn: ChessPawn? = chessBoard.fields[6][1]
+    val piece: ChessPiece? = chessBoard.fields[6][1]
 
     // Entweder müssen wir auf die Bestandteile so zugreifen, dass wir wiederum
     // die Möglichkeit eines null-Werts zulassen (darum das ? hinter "Colour"):
-    val currentColour: Colour? = pawn?.colour
+    val currentColour: Colour? = piece?.colour
 
     // ... oder wir müssen angeben, was wir im Falle des leeren Werts als
     // "Standard" verwenden wollen (hier ChessPawnType.Bishop):
-    val currentType: ChessPawnType = pawn?.type ?: ChessPawnType.Bishop
+    val currentType: ChessPieceType = piece?.type ?: ChessPieceType.Bishop
 }

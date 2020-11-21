@@ -1,10 +1,13 @@
 package week4
 
+// Beim Nim-Spiel gibt es nur zwei mögliche Spieler.
+// Das hatten wir über Strings abgebildet, besser wäre aber ein Enum:
 enum class NimPlayer {
     Computer,
     Human,
 }
 
+// Mögliche Produktkategorien in einem Online-Shop:
 enum class Category {
     Electronic,
     Toys,
