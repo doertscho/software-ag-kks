@@ -1,5 +1,6 @@
 package week4
 
+// Es gibt eine klar definierte Menge von Figur-Typen:
 enum class ChessPieceType {
     King,
     Queen,
@@ -9,16 +10,20 @@ enum class ChessPieceType {
     Pawn,
 }
 
+// Es gibt zwei Farben:
 enum class Colour {
     White,
     Black,
 }
 
+// Eine konkrete Figur wird beschrieben durch ihren Typ und ihre Farbe:
 data class ChessPiece(
         val type: ChessPieceType,
         val colour: Colour
 )
 
+// Ein Schachbrett ist eine zweidimensionale Anordnung von Feldern,
+// auf denen jeweils eine bestimmte Figur steht – oder auch keine (darum das ?):
 data class ChessBoard(
         val fields: Array<Array<ChessPiece?>>
 )
