@@ -216,4 +216,81 @@ val middleRight: Int = sudokuCell[1][2]
 
 ## Nullable Types
 
+Egal, an welcher Stelle Werte oder Variablen auftauchen,
+oft ist es nützlich oder erforderlich, anzugeben,
+dass an dieser Stelle kein richtiger Wert steht.
+Das kann daran liegen, dass der Wert noch nicht bekannt ist,
+oder dass es keinen gibt.
+Viele Programmiersprachen lassen dies ohne gesonderte Absicherung zu,
+dies hat allerdings immer wieder zu Problemen geführt.
+Kotlin erfordert darum eine ausdrückliche Angabe,
+ob solche "leeren" Werte möglich sein sollen.
 
+Der Ausdruck für einen solchen leeren Wert in Kotlin ist `null` –
+und zwar gleichermaßen für alle Datentypen.
+Es wird daher auch als Nullwert bezeichnet.
+`null` darf nicht verwechselt werden mit der Zahl `0`
+oder mit dem Text `"null"`,
+nur ausgeschrieben und ohne Anführungszeichen
+bezeichnet es den leeren Wert.
+
+Bei der Angabe eines Wert-Typen
+(bei der Definition eines benannten Werts, einer Variablen,
+oder in der Signatur einer Funktion)
+muss explizit angegeben werden,
+ob Nullwerte zugelassen werden sollen.
+Falls ja, muss dem Typen ein `?` angehängt werden.
+Falls nein, wenn der Typ als ohne `?` angegeben wird,
+wird Kotlin jede Situation,
+in der ein Nullwert zugewiesen wird oder zugewiesen werden könnte,
+als Fehler melden.
+Wird ein Fragezeichen angehängt,
+bezeichnet man den Typen auch als "Nullable Type".
+
+```
+// hier dürfte NICHT null zugewiesen werden:
+val text1: String = "ababa abaca accacaca"
+// hier darf null zugewiesen werden, oder ein tatsächlicher Wert:
+val text2: String? = null
+val text3: String? = "hallo welt"
+
+// ACHTUNG: null ist nicht zu verwechseln mit ...
+val number: Int = 0                 // ... der Zahl 0
+val text: String = "null"           // ... dem Text "null" (vier Buchstaben)
+val booleanValue: Boolean = false   // ... dem Wahrheitswert "falsch"
+val text: String = ""               // ... dem leeren Text (mit null Buchstaben)
+val list: List<String> = listOf()   // ... einer leeren Liste (mit null Elementen)
+```
+
+Taucht an einer Stelle ein "null-barer" Wert auf,
+es wird aber für die weitere Verwendung
+ein nicht-null-barer Wert benötigt,
+gibt es mehrere Möglichkeiten zur Umwandlung.
+Es kann mit den Zeichen `?:` ein Standardwert angegeben werden,
+der verwendet wird, falls ein Nullwert vorliegt.
+Auch kann Kotlin angewiesen werden,
+in diesem Fall einen Fehler auszugeben.
+Manche Typen definieren auch weitere Hilfsfunktionen.
+
+```
+val nullableText1: String? = null
+val nullableText2: String? = "hier steht tatsächlich text"
+val text1: String = nullableText1 ?: "standard"
+val text2: String = nullableText2 ?: "standard"
+// text1 wird nun den Wert "standard" enthalten,
+// text2 jedoch den Text, der in nullableText2 steht.
+
+// Kotlin kann auch angewiesen werden, bei Null-Werten einen Fehler zu werfen:
+val input: String? = readLine()
+val safeInput: String = input ?: error("input was null!")
+
+// Manche Datentypen bieten weitere Funktionen, z.B. Listen:
+val nullableList: List<Int>? = null
+// Die folgende Funktion verwendet eine leere Liste,
+// falls der Ursprungswert null ist:
+val list: List<Int> = nullableList.orEmpty()
+// Dieser Funktionsaufruf ist identisch mit folgender Schreibweise:
+val list2: List<Int> = nullableList ?: listOf()
+```
+
+**Beispiele: [ChessBoard](ChessBoard.kt)**
